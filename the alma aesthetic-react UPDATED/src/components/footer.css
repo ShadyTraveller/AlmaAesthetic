@@ -1,0 +1,29 @@
+.footer-container1 {
+  display: contents;
+}
+ 
+.footer-thq-footer-logo-link-elm {
+  display: block;
+  margin-bottom: var(--spacing-md);
+  text-decoration: none;
+}
+ 
+.footer-thq-footer-cta-wrapper-elm2 {
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+}
+ 
+.footer-container3 {
+  display: none;
+}
+ 
+.footer-container4 {
+  display: contents;
+}
+ 
+.footer-container5 {
+  display: none;
+}
+ 
+.footer-container6 {
+  display: contents;
+}

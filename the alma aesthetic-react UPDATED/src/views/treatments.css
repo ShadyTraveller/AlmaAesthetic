@@ -1,0 +1,37 @@
+.treatments-container1 {
+  width: 100%;
+  min-height: 100vh;
+}
+ 
+.treatments-thq-treatments-hero-image-band-elm {
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+}
+ 
+.treatments-thq-facial-rituals-eyebrow-elm {
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+}
+ 
+.treatments-thq-addons-eyebrow-elm {
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+}
+ 
+.treatments-video {
+  width: 902px;
+  height: 510px;
+}
+ 
+.treatments-container2 {
+  display: none;
+}
+ 
+.treatments-container3 {
+  display: contents;
+}
+ 
+.treatments-container4 {
+  display: none;
+}
+ 
+.treatments-container5 {
+  display: contents;
+}

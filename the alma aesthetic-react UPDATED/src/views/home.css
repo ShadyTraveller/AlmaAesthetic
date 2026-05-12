@@ -1,0 +1,19 @@
+.home-container1 {
+  width: 100%;
+  min-height: 100vh;
+}
+ 
+.home-thq-hero-subtitle-elm {
+  width: 100%;
+  height: auto;
+  max-width: 618px;
+  margin-left: auto;
+}
+ 
+.home-container2 {
+  display: none;
+}
+ 
+.home-container3 {
+  display: contents;
+}
