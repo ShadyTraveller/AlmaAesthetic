@@ -9,8 +9,7 @@
     "react-router-dom": "^5.2.0",
     "react-helmet": "^6.1.0",
     "dangerous-html": "0.1.13",
-    "@teleporthq/react-components": "latest",
-    "next": "^12.1.10"
+    "@teleporthq/react-components": "latest"
   },
   "scripts": {
     "start": "craco start",
