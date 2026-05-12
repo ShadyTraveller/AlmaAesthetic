@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 import Script from 'dangerous-html/react'
 import { Helmet } from 'react-helmet'
@@ -9,6 +9,18 @@ import Footer from '../components/footer'
 import './treatments.css'
 
 const Treatments = (props) => {
+  const location = useLocation()
+  useEffect(() => {
+    if (!location.hash) return
+    const id = location.hash.replace('#', '')
+    const el = document.getElementById(id)
+    if (el) {
+      window.requestAnimationFrame(() => {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      })
+    }
+  }, [location.pathname, location.hash])
+
   return (
     <div className="treatments-container1">
       <Helmet>
@@ -86,6 +98,7 @@ const Treatments = (props) => {
           </div>
           <div className="facial-rituals-grid">
             <article
+              id="ritual-signature"
               aria-label="Signature Ritual treatment"
               className="glossary--treatments-overview-ritual-card"
             >
@@ -155,6 +168,7 @@ const Treatments = (props) => {
               </div>
             </article>
             <article
+              id="ritual-radiance"
               aria-label="Radiance Ritual treatment"
               className="glossary--treatments-overview-ritual-card ritual-card--accent"
             >
@@ -227,6 +241,7 @@ const Treatments = (props) => {
               </div>
             </article>
             <article
+              id="ritual-desincrustation"
               aria-label="Désincrustation Aesthetic treatment"
               className="glossary--treatments-overview-ritual-card"
             >
@@ -296,6 +311,7 @@ const Treatments = (props) => {
               </div>
             </article>
             <article
+              id="ritual-breathe"
               aria-label="Breathing Ritual treatment"
               className="glossary--treatments-overview-ritual-card ritual-card--accent"
             >

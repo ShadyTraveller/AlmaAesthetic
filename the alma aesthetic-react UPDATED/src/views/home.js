@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 import Script from 'dangerous-html/react'
 import { Helmet } from 'react-helmet'
@@ -9,6 +9,18 @@ import Footer from '../components/footer'
 import './home.css'
 
 const Home = (props) => {
+  const location = useLocation()
+  useEffect(() => {
+    if (!location.hash) return
+    const id = location.hash.replace('#', '')
+    const el = document.getElementById(id)
+    if (el) {
+      window.requestAnimationFrame(() => {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      })
+    }
+  }, [location.pathname, location.hash])
+
   return (
     <div className="home-container1">
       <Helmet>
@@ -50,9 +62,11 @@ const Home = (props) => {
                 <span>Book a Treatment</span>
               </div>
             </Link>
-            <div className="btn btn-lg btn-outline">
-              <span>Explore Treatments</span>
-            </div>
+            <Link to="/treatments">
+              <div className="btn btn-lg btn-outline">
+                <span>Explore Treatments</span>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="hero-trust-strip">
@@ -100,11 +114,11 @@ const Home = (props) => {
               expert technique, and innovative non-invasive treatments to help
               refine your skin and support a healthy-looking glow.
             </p>
-            <a href="/alma-method">
+            <Link to={{ pathname: '/', hash: '#alma-method' }}>
               <div className="btn-md btn btn-outline">
                 <span>Discover The Alma Method</span>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -134,11 +148,11 @@ const Home = (props) => {
                   <span>HYDRATE</span>
                   <span>ILLUMINATE</span>
                 </div>
-                <a href="/treatments/signature">
+                <Link to="/treatments#ritual-signature">
                   <div className="btn btn-link">
                     <span>View Treatment</span>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="ritual-card">
@@ -161,11 +175,11 @@ const Home = (props) => {
                   <span>FIRM</span>
                   <span>ILLUMINATE</span>
                 </div>
-                <a href="/treatments/radiance">
+                <Link to="/treatments#ritual-radiance">
                   <div className="btn btn-link">
                     <span>View Treatment</span>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="ritual-card">
@@ -187,11 +201,11 @@ const Home = (props) => {
                   <span>SMOOTHE</span>
                   <span>ILLUMINATE</span>
                 </div>
-                <a href="/treatments/desincrustation">
+                <Link to="/treatments#ritual-desincrustation">
                   <div className="btn btn-link">
                     <span>View Treatment</span>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="ritual-card">
@@ -213,11 +227,11 @@ const Home = (props) => {
                   <span>REFRESH</span>
                   <span>ILLUMINATE</span>
                 </div>
-                <a href="/treatments/breathe">
+                <Link to="/treatments#ritual-breathe">
                   <div className="btn btn-link">
                     <span>View Treatment</span>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

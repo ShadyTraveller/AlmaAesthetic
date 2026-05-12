@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import Script from 'dangerous-html/react'
 import { Helmet } from 'react-helmet'
@@ -51,11 +52,11 @@ const CosmeticConsultation = (props) => {
               skin, renew it and support your health.
             </p>
             <div className="consult-hero-actions">
-              <a href="#book">
+              <Link to="/book">
                 <div className="btn-primary btn btn-lg">
                   <span>Book Now</span>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

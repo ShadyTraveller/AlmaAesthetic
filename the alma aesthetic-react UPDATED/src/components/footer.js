@@ -107,7 +107,13 @@ const Footer = (props) => {
                       </div>
                     </Link>
                   </li>
-                  <li className="footer-nav-item"></li>
+                  <li className="footer-nav-item">
+                    <Link to="/treatments">
+                      <div className="footer-nav-link">
+                        <span>Treatments</span>
+                      </div>
+                    </Link>
+                  </li>
                   <li className="footer-nav-item">
                     <Link to="/cosmetic-consultation">
                       <div className="footer-nav-link">

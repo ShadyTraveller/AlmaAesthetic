@@ -1,3 +1,13 @@
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 :root {
   --spacing-lg: 1.5rem;
   --spacing-md: 1rem;

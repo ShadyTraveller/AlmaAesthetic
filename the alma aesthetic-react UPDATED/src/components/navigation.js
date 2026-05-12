@@ -62,11 +62,11 @@ const Navigation = (props) => {
                 <span>Home</span>
               </div>
             </Link>
-            <a href="/#alma-method">
+            <Link to={{ pathname: '/', hash: '#alma-method' }}>
               <div className="navigation-link">
                 <span>The Alma Method</span>
               </div>
-            </a>
+            </Link>
             <Link to="/treatments">
               <div className="navigation-link">
                 <span>Treatments</span>
@@ -77,11 +77,11 @@ const Navigation = (props) => {
                 <span>Cosmetic Consultation</span>
               </div>
             </Link>
-            <a href="/#contact">
+            <Link to={{ pathname: '/', hash: '#contact' }}>
               <div className="navigation-link">
                 <span>Contact</span>
               </div>
-            </a>
+            </Link>
             <Link to="/book">
               <div className="btn-sm btn-primary navigation-cta btn">
                 <span>Book Now</span>
@@ -191,11 +191,11 @@ const Navigation = (props) => {
                 <span>Home</span>
               </div>
             </Link>
-            <a href="/#alma-method">
+            <Link to={{ pathname: '/', hash: '#alma-method' }}>
               <div className="navigation-mobile-link">
                 <span>The Alma Method</span>
               </div>
-            </a>
+            </Link>
             <Link to="/treatments">
               <div className="navigation-mobile-link">
                 <span>Treatments</span>
@@ -206,11 +206,11 @@ const Navigation = (props) => {
                 <span>Cosmetic Consultation</span>
               </div>
             </Link>
-            <a href="/#contact">
+            <Link to={{ pathname: '/', hash: '#contact' }}>
               <div className="navigation-mobile-link">
                 <span>Contact</span>
               </div>
-            </a>
+            </Link>
             <ContactInfo className="contact-info-wrapper-t7z1"></ContactInfo>
           </div>
           <div className="navigation-mobile-footer">
