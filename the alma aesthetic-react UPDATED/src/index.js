@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 
 import './style.css'
 import Book from './views/book'
@@ -23,6 +24,7 @@ const App = () => {
         <Route component={Home} exact path="/" />
         <Route component={NotFound} />
       </Switch>
+      <Analytics />
     </Router>
   )
 }
