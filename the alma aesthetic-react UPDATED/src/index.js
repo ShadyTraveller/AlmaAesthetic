@@ -1,30 +1,14 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import { MotionConfig } from 'framer-motion'
+import './index.css'
+import App from './App'
 
-import './style.css'
-import Book from './views/book'
-import Treatments from './views/treatments'
-import CosmeticConsultation from './views/cosmetic-consultation'
-import Home from './views/home'
-import NotFound from './views/not-found'
-
-const App = () => {
-  return (
-    <Router>
-      <Switch>
-        <Route component={Book} exact path="/book" />
-        <Route component={Treatments} exact path="/treatments" />
-        <Route
-          component={CosmeticConsultation}
-          exact
-          path="/cosmetic-consultation"
-        />
-        <Route component={Home} exact path="/" />
-        <Route component={NotFound} />
-      </Switch>
-    </Router>
-  )
-}
-
-ReactDOM.render(<App />, document.getElementById('app'))
+createRoot(document.getElementById('app')).render(
+  <BrowserRouter>
+    <MotionConfig reducedMotion="user">
+      <App />
+    </MotionConfig>
+  </BrowserRouter>
+)

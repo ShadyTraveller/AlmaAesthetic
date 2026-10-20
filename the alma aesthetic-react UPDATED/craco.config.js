@@ -1,12 +1,1 @@
-module.exports = {
-  reactScriptsVersion: "react-scripts",
-  style: {
-    css: {
-      loaderOptions: () => {
-        return {
-          url: false,
-        };
-      },
-    },
-  },
-};
+module.exports = { reactScriptsVersion: "react-scripts" };

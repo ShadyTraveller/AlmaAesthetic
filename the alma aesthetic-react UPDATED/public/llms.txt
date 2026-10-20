@@ -1,10 +1,8 @@
-# The Alma Aesthetic
+# Alma Aesthetic
 
-> Alma Aesthetic is an exclusive organic facial spa serving Miami, Broward, Island and Palm Beach with facials, advanced skincare and technology.
+> Skincare treatments and red light therapy devices in Toronto, ON. Open Mon–Fri, 8AM–8PM. Booking: book@almaaesthetic.co
 
-## Pages
-
-- [Book - Alma Aesthetic](alma-aesthetic.com/book): Alma Aesthetic is an exclusive organic facial spa serving Miami, Broward, Island and Palm Beach with facials, advanced skincare and technology.
-- [Treatments - Alma Aesthetic](alma-aesthetic.com/treatments): Alma Aesthetic is an exclusive organic facial spa serving Miami, Broward, Island and Palm Beach with facials, advanced skincare and technology.
-- [Cosmetic-Consultation - Alma Aesthetic](alma-aesthetic.com/cosmetic-consultation): Alma Aesthetic is an exclusive organic facial spa serving Miami, Broward, Island and Palm Beach with facials, advanced skincare and technology.
-- [Alma Aesthetic](alma-aesthetic.com): Alma Aesthetic is an exclusive organic facial spa serving Miami, Broward, Island and Palm Beach with facials, advanced skincare and technology.
+- [Home](https://www.almaaesthetic.co/)
+- [Treatments](https://www.almaaesthetic.co/treatments)
+- [Cosmetic Consultation](https://www.almaaesthetic.co/cosmetic-consultation)
+- [Contact](https://www.almaaesthetic.co/contact)

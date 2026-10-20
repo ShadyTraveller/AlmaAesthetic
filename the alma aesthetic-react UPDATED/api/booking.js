@@ -1,73 +1,53 @@
-const { createClient } = require('@supabase/supabase-js')
+// Vercel serverless function: emails booking requests to book@almaaesthetic.co via Resend.
+// Needs RESEND_API_KEY (and optionally BOOKING_FROM). Without it returns 503 and the
+// site falls back to opening the visitor's mail app.
+const TO = 'book@almaaesthetic.co'
+const esc = (s) =>
+  String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
+const clean = (s, n = 200) => String(s ?? '').replace(/[\r\n]+/g, ' ').trim().slice(0, n)
 
 module.exports = async (req, res) => {
-  res.setHeader('Content-Type', 'application/json')
-  if (req.method === 'OPTIONS') {
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
-    return res.status(204).end()
-  }
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' })
-  }
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
 
-  const body =
-    typeof req.body === 'string'
-      ? (() => {
-          try {
-            return JSON.parse(req.body)
-          } catch (_) {
-            return null
-          }
-        })()
-      : req.body
+  let b = req.body
+  if (typeof b === 'string') {
+    try { b = JSON.parse(b) } catch (_) { b = null }
+  }
+  if (!b || typeof b !== 'object') return res.status(400).json({ error: 'Invalid body' })
 
-  if (!body || typeof body !== 'object') {
-    return res.status(400).json({ error: 'Invalid JSON body' })
+  const d = {
+    name: clean(b.name), phone: clean(b.phone, 40), email: clean(b.email),
+    treatment: clean(b.treatment), date: clean(b.date, 20), time: clean(b.time, 20),
+    addOns: Array.isArray(b.addOns) ? b.addOns.map((x) => clean(x, 60)).join(', ') : '',
+  }
+  if (!d.name || !d.phone || !/^\S+@\S+\.\S+$/.test(d.email) || !d.treatment || !d.date || !d.time) {
+    return res.status(400).json({ error: 'Missing or invalid fields' })
   }
 
-  const fullName = String(body.fullName || '').trim()
-  const phone = String(body.phone || '').trim()
-  const email = String(body.email || '').trim()
-  const treatmentType = String(body.treatmentType || '').trim()
-  const addOns = Array.isArray(body.addOns)
-    ? body.addOns.map(String).join(', ')
-    : String(body.addOns != null ? body.addOns : '').trim()
+  const key = process.env.RESEND_API_KEY
+  if (!key) return res.status(503).json({ code: 'NOT_CONFIGURED' })
 
-  if (!fullName || !phone || !email || !treatmentType) {
-    return res.status(400).json({ error: 'Missing required fields' })
-  }
+  const html = `<h2>New booking request</h2><ul>
+    <li><b>Treatment:</b> ${esc(d.treatment)}</li>
+    ${d.addOns ? `<li><b>Add-ons:</b> ${esc(d.addOns)}</li>` : ''}
+    <li><b>Preferred:</b> ${esc(d.date)} at ${esc(d.time)}</li>
+    <li><b>Name:</b> ${esc(d.name)}</li><li><b>Phone:</b> ${esc(d.phone)}</li><li><b>Email:</b> ${esc(d.email)}</li></ul>`
 
-  const url = process.env.SUPABASE_URL
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY
-  if (!url || !key) {
-    return res.status(503).json({
-      code: 'NOT_CONFIGURED',
-      error: 'Supabase is not configured for this deployment.',
+  try {
+    const r = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        from: process.env.BOOKING_FROM || 'Alma Aesthetic <onboarding@resend.dev>',
+        to: [TO],
+        reply_to: d.email,
+        subject: `Booking request: ${d.treatment} (${d.date})`,
+        html,
+      }),
     })
+    if (!r.ok) return res.status(502).json({ error: 'Email failed' })
+    return res.status(200).json({ ok: true })
+  } catch (_) {
+    return res.status(502).json({ error: 'Email failed' })
   }
-
-  const supabase = createClient(url, key, {
-    auth: { persistSession: false },
-  })
-
-  const row = {
-    full_name: fullName,
-    phone,
-    email,
-    treatment_type: treatmentType,
-    add_on_services: addOns || null,
-    preferred_date: body.preferredDate || null,
-    preferred_time: body.preferredTime || null,
-    region: body.region || null,
-  }
-
-  const { error } = await supabase.from('bookings').insert(row)
-  if (error) {
-    console.error('Supabase insert error', error)
-    return res.status(500).json({ error: 'Could not save booking' })
-  }
-
-  return res.status(200).json({ ok: true })
 }
