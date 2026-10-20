@@ -13,7 +13,7 @@ function Hero() {
   return (
     <section className="relative flex min-h-[calc(100svh-4rem)] items-end overflow-hidden bg-ink text-white md:items-center">
       {reduce ? (
-        <img src="/images/alma-signature-facial.png" alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <img src="/media/hero-poster.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
       ) : (
         <video
           autoPlay
@@ -21,7 +21,7 @@ function Hero() {
           loop
           playsInline
           preload="metadata"
-          poster="/images/alma-signature-facial.png"
+          poster="/media/hero-poster.jpg"
           className="absolute inset-0 h-full w-full object-cover"
           aria-hidden="true"
         >
