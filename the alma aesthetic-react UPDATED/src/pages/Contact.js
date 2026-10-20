@@ -42,7 +42,7 @@ export default function Contact() {
           </a>
           <div className={row}>
             <Icon name="pin" className="text-gold-dark" />
-            <span><span className="block text-xs text-muted">Location</span>{BUSINESS.city}</span>
+            <span><span className="block text-xs text-muted">Location</span>{BUSINESS.address}</span>
           </div>
           <div className="rounded-2xl border border-line bg-white p-5 shadow-soft">
             <div className="mb-3 flex items-center justify-between">

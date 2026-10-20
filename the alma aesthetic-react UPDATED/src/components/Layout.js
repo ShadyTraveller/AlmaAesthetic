@@ -101,7 +101,7 @@ function Footer() {
           </p>
         </div>
         <ul className="space-y-2 text-sm text-white/80">
-          <li>{BUSINESS.city}</li>
+          <li>{BUSINESS.address}</li>
           <li>{BUSINESS.hours} · closed weekends</li>
           <li><a className="hover:text-gold" href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a></li>
           <li>

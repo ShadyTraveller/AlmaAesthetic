@@ -4,6 +4,7 @@ export const BUSINESS = {
   whatsapp: '18442242723',
   whatsappDisplay: '1-844-224-2723',
   city: 'Toronto, ON',
+  address: '397B Vaughan Rd, Toronto, ON',
   hours: 'Mon–Fri · 8AM–8PM',
   tz: 'America/Toronto',
 }
