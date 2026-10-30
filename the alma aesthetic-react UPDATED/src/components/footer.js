@@ -208,9 +208,9 @@ const Footer = (props) => {
                     </g>
                   </svg>
                   <span className="footer-contact-text">
-                    <span>7901 4th ST N STE 300</span>
+                    <span>7901 4th St N, Suite 300</span>
                     <br></br>
-                    <span>ST PETERSBURG, FL US 33702</span>
+                    <span>St. Petersburg, FL 33702, United States</span>
                   </span>
                 </div>
                 <div className="footer-contact-item footer-coming-soon">
@@ -248,7 +248,7 @@ const Footer = (props) => {
           <div className="footer-container4">
             <Script
               html={`<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Alma Aesthetic","description":"Client-first facial bar serving North and South Florida, with personalized facials, advanced skincare treatments, and routine-focused skin care.","url":"https://alma-aesthetic.com","telephone":"+17722558737","email":"book@alma-aesthetic.com","address":{"@type":"PostalAddress","streetAddress":"7901 4th ST N STE 300","addressLocality":"St Petersburg","addressRegion":"FL","postalCode":"33702","addressCountry":"US"},"areaServed":["North & South Florida","Miami-Dade County","Broward County","Palm Beach County"],"serviceType":["Luxury Facials","Personalized Facials","LED Facial","Desincrustation Aesthetic Facial","Consultation"],"priceRange":"$$"}
+{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Alma Aesthetic","description":"Client-first facial bar serving North and South Florida, with personalized facials, advanced skincare treatments, and routine-focused skin care.","url":"https://alma-aesthetic.com","telephone":"+17722558737","email":"book@alma-aesthetic.com","address":{"@type":"PostalAddress","streetAddress":"7901 4th St N, Suite 300","addressLocality":"St. Petersburg","addressRegion":"FL","postalCode":"33702","addressCountry":"US"},"areaServed":["North & South Florida","Miami-Dade County","Broward County","Palm Beach County"],"serviceType":["Luxury Facials","Personalized Facials","LED Facial","Desincrustation Aesthetic Facial","Consultation"],"priceRange":"$$"}
 </script>`}
             ></Script>
           </div>
