@@ -97,9 +97,9 @@ const ContactInfo = (props) => {
                   </div>
                   <div className="contact-info-text-group">
                     <p className="contact-info-thq-contact-info-value-elm3 contact-info-value">
-                      <span>7901 4th ST N STE 300</span>
+                      <span>7901 4th St N, Suite 300</span>
                       <br></br>
-                      <span>ST PETERSBURG, FL</span>
+                      <span>St. Petersburg, FL 33702, United States</span>
                     </p>
                   </div>
                 </div>
